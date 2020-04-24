@@ -1,0 +1,52 @@
+{
+  "stocks": [
+    {
+      "name": "Apple",
+      "values": [
+        { "year": 2010, "price": 10 },
+        { "year": 2011, "price": 12 },
+        { "year": 2012, "price": 17 },
+        { "year": 2013, "price": 16 },
+        { "year": 2014, "price": 20 },
+        { "year": 2015, "price": 18 },
+        { "year": 2016, "price": 18 },
+        { "year": 2017, "price": 16 },
+        { "year": 2018, "price": 17 },
+        { "year": 2019, "price": 17 },
+        { "year": 2020, "price": 17 }
+      ]
+    },
+    {
+      "name": "Amazon",
+      "values": [
+        { "year": 2010, "price": 4 },
+        { "year": 2011, "price": 3 },
+        { "year": 2012, "price": 10 },
+        { "year": 2013, "price": 16 },
+        { "year": 2014, "price": 11 },
+        { "year": 2015, "price": 10 },
+        { "year": 2016, "price": 22 },
+        { "year": 2017, "price": 24 },
+        { "year": 2018, "price": 32 },
+        { "year": 2019, "price": 30 },
+        { "year": 2020, "price": 20 }
+      ]
+    },
+    {
+      "name": "ProcterGamble",
+      "values": [
+        { "year": 2010, "price": 16 },
+        { "year": 2011, "price": 12 },
+        { "year": 2012, "price": 7 },
+        { "year": 2013, "price": 2 },
+        { "year": 2014, "price": 3 },
+        { "year": 2015, "price": 5 },
+        { "year": 2016, "price": 8 },
+        { "year": 2017, "price": 6 },
+        { "year": 2018, "price": 2 },
+        { "year": 2019, "price": 4 },
+        { "year": 2020, "price": 3 }
+      ]
+    }
+  ]
+}
