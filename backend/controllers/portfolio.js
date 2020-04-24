@@ -3,9 +3,10 @@
 import Portfolio from "../model/portfolio"
 
 const getPortfolioProfit = async (req, res) => {
+  console.log(req)
   const portfolio = new Portfolio()
   try {
-    const response = portfolio.getProfit(req.body.year1, req.body.year2)
+    const response = portfolio.getProfit(req.query.year1, req.query.year2)
     return res.status(200).send({
       response
     })
