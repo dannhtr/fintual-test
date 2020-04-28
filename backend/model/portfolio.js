@@ -4,17 +4,12 @@ import Stocks from "./stocks"
 
 class Portfolio {
   getProfit(year1, year2) {
-    const stocks = new Stocks()
-    const selectedStocks = []
-
     if (year1 > year2) {
       return "El año 1 debe ser menor al año 2"
     } else {
-      for (let i = Number(year1); i <= Number(year2); i++) {
-        let stockPrices = stocks.getPrice(i)
-        selectedStocks.push(stockPrices)
-      }
+      const stocks = new Stocks()
 
+      const selectedStocks = this.getStockPrices(year1, year2, stocks)
       const totalYears = this.calculateYears(year1, year2)
       const groupedStocks = this.groupByProperty(selectedStocks, "name")
       const groupedbByYear = this.groupByProperty(selectedStocks, "year")
@@ -26,6 +21,17 @@ class Portfolio {
 
       return { stocksProfit, annualizedReturns }
     }
+  }
+
+  getStockPrices(year1, year2, stocks) {
+    let selected = []
+
+    for (let i = Number(year1); i <= Number(year2); i++) {
+      let stockPrices = stocks.getPrice(i)
+      selected.push(stockPrices)
+    }
+
+    return selected
   }
 
   calculateYears(year1, year2) {
