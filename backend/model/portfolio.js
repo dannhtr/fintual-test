@@ -8,25 +8,35 @@ class Portfolio {
     const selectedStocks = []
 
     if (year1 > year2) {
-      return console.log("El año 1 debe ser menor al año 2")
+      return "El año 1 debe ser menor al año 2"
     } else {
-      for (let i = year1; i <= year2; i++) {
+      for (let i = Number(year1); i <= Number(year2); i++) {
         let stockPrices = stocks.getPrice(i)
         selectedStocks.push(stockPrices)
       }
+
+      const totalYears = this.calculateYears(year1, year2)
+      const groupedStocks = this.groupByProperty(selectedStocks, "name")
+      const groupedbByYear = this.groupByProperty(selectedStocks, "year")
+
+      //return profit of portfolio between dates
+      const stocksProfit = this.calculateProfit(groupedStocks)
+      // return annualized return of portfolio between dates
+      const annualizedReturns = this.calculateAnnualized(groupedbByYear, totalYears)
+
+      return { stocksProfit, annualizedReturns }
     }
-    const groupedStocks = this.groupByStockName(selectedStocks, "name")
-
-    //return profit of portfolio between dates
-    const stocksProfit = this.calculateProfit(groupedStocks)
-
-    // return annualized return of portfolio between dates
-    const annualizedReturns = this.calculateAnnualized(groupedStocks)
-
-    return { stocksProfit, annualizedReturns }
   }
 
-  groupByStockName(objectArray, property) {
+  calculateYears(year1, year2) {
+    let years = 0
+    for (let i = Number(year1); i <= Number(year2); i++) {
+      years = years + 1
+    }
+    return years
+  }
+
+  groupByProperty(objectArray, property) {
     const flattened = objectArray.reduce((acc, val) => acc.concat(val), [])
 
     return flattened.reduce(function(total, obj) {
@@ -35,7 +45,7 @@ class Portfolio {
         total[key] = []
       }
 
-      let yearStockPrice = { price: obj.price }
+      let yearStockPrice = obj.price
       total[key].push(yearStockPrice)
       return total
     }, {})
@@ -45,7 +55,7 @@ class Portfolio {
     const stocksProfit = []
 
     for (let stockName in stocks) {
-      let totalProfit = stocks[stockName][`${stocks[stockName].length - 1}`].price - stocks[stockName][0].price
+      let totalProfit = stocks[stockName][`${stocks[stockName].length - 1}`] - stocks[stockName][0]
       let stockProfit = {
         name: stockName,
         profit: totalProfit
@@ -57,27 +67,28 @@ class Portfolio {
     return stocksProfit
   }
 
-  calculateAnnualized(stocks) {
-    const annualizedReturns = []
-
-    for (let stockName in stocks) {
-      let finalTotal = 0
-      let initialPrice = stocks[stockName][0].price
-
-      for (let stock of stocks[stockName]) {
-        finalTotal = finalTotal + stock.price
-      }
-
-      let calculatedTotal = (finalTotal / initialPrice - 1) / stocks[stockName].length
-      let stockAnnualized = {
-        name: stockName,
-        return: calculatedTotal
-      }
-
-      annualizedReturns.push(stockAnnualized)
+  calculatePortfolioMarketValue(portfolio) {
+    let marketValue = 0
+    for (let value of portfolio) {
+      marketValue = marketValue + value
     }
+    return marketValue
+  }
 
-    return annualizedReturns
+  calculateAnnualized(yearsObj, totalYears) {
+    let beginningPortfolioArr = yearsObj[Object.keys(yearsObj)[0]]
+    let endingPortfolioArr = yearsObj[Object.keys(yearsObj)[Object.keys(yearsObj).length - 1]]
+
+    //Beginning value
+    let beginningValue = this.calculatePortfolioMarketValue(beginningPortfolioArr)
+    //Ending value
+    let endingValue = this.calculatePortfolioMarketValue(endingPortfolioArr)
+    // OverallReturn
+    let overallReturn = (endingValue - beginningValue) / beginningValue
+
+    let calculatedAnnualReturn = (Math.pow(1 + overallReturn, 1 / totalYears) - 1) * 100
+
+    return calculatedAnnualReturn
   }
 }
 

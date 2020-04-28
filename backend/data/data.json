@@ -3,49 +3,49 @@
     {
       "name": "Apple",
       "values": [
-        { "year": 2010, "price": 10 },
-        { "year": 2011, "price": 12 },
-        { "year": 2012, "price": 17 },
-        { "year": 2013, "price": 16 },
-        { "year": 2014, "price": 20 },
-        { "year": 2015, "price": 18 },
-        { "year": 2016, "price": 18 },
-        { "year": 2017, "price": 16 },
-        { "year": 2018, "price": 17 },
-        { "year": 2019, "price": 17 },
-        { "year": 2020, "price": 17 }
+        { "year": 2010, "price": 114 },
+        { "year": 2011, "price": 130 },
+        { "year": 2012, "price": 175 },
+        { "year": 2013, "price": 164 },
+        { "year": 2014, "price": 220 },
+        { "year": 2015, "price": 185 },
+        { "year": 2016, "price": 184 },
+        { "year": 2017, "price": 163 },
+        { "year": 2018, "price": 179 },
+        { "year": 2019, "price": 174 },
+        { "year": 2020, "price": 175 }
       ]
     },
     {
       "name": "Amazon",
       "values": [
-        { "year": 2010, "price": 4 },
-        { "year": 2011, "price": 3 },
-        { "year": 2012, "price": 10 },
-        { "year": 2013, "price": 16 },
-        { "year": 2014, "price": 11 },
-        { "year": 2015, "price": 10 },
-        { "year": 2016, "price": 22 },
-        { "year": 2017, "price": 24 },
-        { "year": 2018, "price": 32 },
-        { "year": 2019, "price": 30 },
-        { "year": 2020, "price": 20 }
+        { "year": 2010, "price": 401 },
+        { "year": 2011, "price": 398 },
+        { "year": 2012, "price": 370 },
+        { "year": 2013, "price": 324 },
+        { "year": 2014, "price": 287 },
+        { "year": 2015, "price": 240 },
+        { "year": 2016, "price": 222 },
+        { "year": 2017, "price": 246 },
+        { "year": 2018, "price": 328 },
+        { "year": 2019, "price": 306 },
+        { "year": 2020, "price": 294 }
       ]
     },
     {
       "name": "ProcterGamble",
       "values": [
-        { "year": 2010, "price": 16 },
-        { "year": 2011, "price": 12 },
-        { "year": 2012, "price": 7 },
-        { "year": 2013, "price": 2 },
-        { "year": 2014, "price": 3 },
-        { "year": 2015, "price": 5 },
-        { "year": 2016, "price": 8 },
-        { "year": 2017, "price": 6 },
-        { "year": 2018, "price": 2 },
-        { "year": 2019, "price": 4 },
-        { "year": 2020, "price": 3 }
+        { "year": 2010, "price": 164 },
+        { "year": 2011, "price": 129 },
+        { "year": 2012, "price": 134 },
+        { "year": 2013, "price": 188 },
+        { "year": 2014, "price": 241 },
+        { "year": 2015, "price": 356 },
+        { "year": 2016, "price": 478 },
+        { "year": 2017, "price": 510 },
+        { "year": 2018, "price": 589 },
+        { "year": 2019, "price": 647 },
+        { "year": 2020, "price": 765 }
       ]
     }
   ]

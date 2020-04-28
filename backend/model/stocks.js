@@ -15,7 +15,8 @@ class Stocks {
         if (year === value.year) {
           let stockPrice = {
             name: stock.name,
-            price: value.price
+            price: value.price,
+            year: value.year
           }
 
           yearlyStocks.push(stockPrice)

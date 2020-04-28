@@ -10,9 +10,7 @@ const getPortfolioProfit = async (req, res) => {
       response
     })
   } catch (error) {
-    return res.status(500).send({
-      data: error
-    })
+    console.log(error)
   }
 }
 
