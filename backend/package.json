@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./index.js --exec babel-node"
+    "server": "nodemon ./index.js --exec babel-node"
   },
   "dependencies": {
     "cors": "^2.8.5",
