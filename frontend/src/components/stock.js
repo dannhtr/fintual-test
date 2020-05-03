@@ -11,22 +11,22 @@ const Stock = styled.div`
   ${space};
 `
 
-const StockComp = ({ name, value, ...rest }) => {
+const StockComp = ({ name, profit, data, ...rest }) => {
   return (
     <Stock {...rest}>
       <Label fontSize='small'>{name}</Label>
-      <Heading level={4} fontSize='medium'>
-        $ {value}
+      <Heading level={4} fontSize='medium' marginBottom='small'>
+        $ {profit}
       </Heading>
       <Trend
         smooth
         autoDraw
         autoDrawDuration={500}
         autoDrawEasing='ease-out'
-        data={[0, 8, 1, 9]}
+        data={data}
         gradient={[theme.colors.primary, theme.colors.success]}
         radius={20}
-        strokeWidth={8}
+        strokeWidth={6}
         strokeLinecap={"round"}
         width={180}
         height={60}

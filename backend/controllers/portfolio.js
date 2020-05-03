@@ -6,7 +6,6 @@ const getPortfolioProfit = async (req, res) => {
   const portfolio = new Portfolio()
   try {
     const response = portfolio.getProfit(req.query.year1, req.query.year2)
-    console.log(response)
     return res.status(200).send({
       data: response
     })

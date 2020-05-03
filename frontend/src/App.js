@@ -4,16 +4,16 @@ import theme from "./components/theme"
 import "./App.css"
 
 import PortfolioService from "./services/portfolio"
-import { Container, Sidebar, Main, Content, Card, DataItem, Section, PortfolioTitle, Stock } from "./components"
+import { Container, Sidebar, Main, Content, Card, DataItem, Section, PortfolioTitle, Stock, Filter } from "./components"
 
 const App = () => {
   const [annualized, setAnnualized] = useState(0)
   const [profit, setProfit] = useState(0)
   const [stocks, setStocks] = useState(null)
 
-  const getProfit = async () => {
+  const getProfit = async (year1, year2) => {
     try {
-      const { data } = await PortfolioService.getPortfolioProfit(2012, 2019)
+      const { data } = await PortfolioService.getPortfolioProfit(year1, year2)
 
       let profit = 0
       for (let stock of data.stocksProfit) {
@@ -27,26 +27,28 @@ const App = () => {
     }
   }
 
-  useEffect(() => {
-    getProfit()
-  }, [])
-
   return (
     <ThemeProvider theme={theme}>
       <Container>
         <Sidebar />
         <Main>
           <Content>
-            <PortfolioTitle title='Portafolio' name='Risky Norris A' marginBottom={60} />
+            <Section display='flex' justifyContent='space-between' alignItems='flex-end' marginBottom={40}>
+              <PortfolioTitle title='Portafolio' name='Risky Norris A' />
+              <Filter getProfit={getProfit} />
+            </Section>
+
             <Card borderRadius='large' p='100px'>
               <Section display='flex' marginBottom={50}>
-                <DataItem name='Retorno Anualizado' value={annualized.toFixed(1)} marginRight='large' type='percent' />
+                <DataItem name='Retorno Anualizado' value={annualized.toFixed(1)} marginRight={50} type='percent' />
                 <DataItem name='Beneficio' value={profit} type='cash' />
               </Section>
               <Section display='flex' marginBottom='large' justifyContent='space-between'>
-                <Stock name='Apple' value='70' />
-                <Stock name='Amazon' value='-179' />
-                <Stock name='Proter & Gamble' value='314' />
+                {stocks
+                  ? stocks.map((item, index) => {
+                      return <Stock key={index} name={item.name} profit={item.profit} data={item.values} />
+                    })
+                  : null}
               </Section>
             </Card>
           </Content>

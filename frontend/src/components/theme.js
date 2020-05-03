@@ -3,11 +3,12 @@ export default {
     primary: "#005AD6",
     secondary: "#002961",
     gray: "#868686",
+    disabled: "#D9D9D9",
     bg: "#F3F6FA",
     success: "#12E4B2",
     danger: "#FF5656",
     warning: "#FCD034",
-    success: "#179EFF",
+    info: "#179EFF",
     white: "#fff"
   },
   radii: {
