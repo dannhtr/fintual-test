@@ -11,29 +11,29 @@ export default {
     white: "#fff"
   },
   radii: {
-    small: "4px",
-    medium: "8px",
-    large: "12px"
+    small: 4,
+    medium: 8,
+    large: 12
   },
   fontSizes: {
-    mini: "12px",
-    basic: "16px",
-    small: "18px",
-    medium: "24px",
-    big: "32px",
-    large: "42px",
-    gigant: "64px"
+    mini: 12,
+    basic: 16,
+    small: 18,
+    medium: 24,
+    big: 36,
+    large: 42,
+    gigant: 64
   },
   borderWidths: {
-    thin: "2px",
-    thick: "4px"
+    thin: 2,
+    thick: 4
   },
   space: {
-    mini: "5px",
-    basic: "10px",
-    small: "15px",
-    medium: "20px",
-    big: "25px",
-    large: "30px"
+    mini: 5,
+    basic: 10,
+    small: 15,
+    medium: 20,
+    big: 25,
+    large: 30
   }
 }

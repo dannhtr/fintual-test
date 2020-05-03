@@ -6,9 +6,10 @@ const Main = styled.main`
   background-color: ${({ theme }) => theme.colors.bg};
   padding: ${({ theme }) => theme.space.large};
   display: flex;
-  align-items: stretch;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
+
   ${space};
   ${layout};
   ${color};
