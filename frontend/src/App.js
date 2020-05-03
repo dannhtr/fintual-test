@@ -1,8 +1,11 @@
 import React, { useEffect } from "react"
-import logo from "./logo.svg"
+import styled from "styled-components"
+import { ThemeProvider } from "styled-components"
+import theme from "./components/theme"
 import "./App.css"
 
 import PortfolioService from "./services/portfolio"
+import { Container, Sidebar, Main, Card } from "./components"
 
 const App = () => {
   const getProfit = async () => {
@@ -19,17 +22,17 @@ const App = () => {
   }, [])
 
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a className='App-link' href='https://reactjs.org' target='_blank' rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Container>
+        <Sidebar />
+        <Main>
+          <Card borderRadius='large' p='100px'>
+            <p>Retorno Anualizado</p>
+            <h2>3.8%</h2>
+          </Card>
+        </Main>
+      </Container>
+    </ThemeProvider>
   )
 }
 
