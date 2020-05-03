@@ -1,4 +1,4 @@
-export default {
+const style = {
   colors: {
     primary: "#005AD6",
     secondary: "#002961",
@@ -36,5 +36,13 @@ export default {
     medium: 20,
     big: 25,
     large: 30
-  }
+  },
+  breakpoints: ["568px", "768px", "1366px", "	1680px"]
 }
+
+style.breakpoints.sm = style.breakpoints[0]
+style.breakpoints.md = style.breakpoints[1]
+style.breakpoints.lg = style.breakpoints[2]
+style.breakpoints.xl = style.breakpoints[3]
+
+export default style

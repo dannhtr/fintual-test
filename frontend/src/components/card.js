@@ -6,7 +6,8 @@ const Card = styled.div`
   ${space};
   ${layout};
   ${color};
-  ${border}
+  ${border};
+  transition: all ease 0.5s;
 `
 
 export default Card

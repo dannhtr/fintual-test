@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
+import { space, layout } from "styled-system"
 
 import Select from "./select"
 
 const Filter = styled.div`
   display: flex;
+  ${space};
+  ${layout};
 `
 const Button = styled.button`
   border: 0;
@@ -24,6 +27,8 @@ const Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.colors.info};
   }
+
+  ${space};
 `
 
 const FilterComp = ({ getProfit }) => {
@@ -40,8 +45,13 @@ const FilterComp = ({ getProfit }) => {
   }, [])
 
   return (
-    <Filter>
-      <Select onChange={e => setFirstYear(e.target.value)} value={firstYear} marginRight={10}>
+    <Filter width={{ _: "100%", md: "auto" }}>
+      <Select
+        onChange={e => setFirstYear(e.target.value)}
+        value={firstYear}
+        marginRight={10}
+        flex={{ _: "1 1 auto", md: "initial" }}
+      >
         {years.map((item, index) => {
           return (
             <option key={index} value={item}>
@@ -50,7 +60,12 @@ const FilterComp = ({ getProfit }) => {
           )
         })}
       </Select>
-      <Select onChange={e => setSecondYear(e.target.value)} value={secondYear} marginRight={10}>
+      <Select
+        onChange={e => setSecondYear(e.target.value)}
+        value={secondYear}
+        marginRight={10}
+        flex={{ _: "1 1 auto", md: "initial" }}
+      >
         {years.map((item, index) => {
           return (
             <option key={index} value={item} disabled={item <= firstYear ? true : null}>
@@ -59,7 +74,7 @@ const FilterComp = ({ getProfit }) => {
           )
         })}
       </Select>
-      <Button onClick={handleGetProfit}>
+      <Button onClick={handleGetProfit} marginLeft={{ _: "auto", md: "initial" }}>
         <img src='/search.png' alt='image' />
       </Button>
     </Filter>

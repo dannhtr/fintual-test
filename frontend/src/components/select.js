@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { space, layout } from "styled-system"
+import { space, layout, flexbox } from "styled-system"
 
 const Select = styled.select`
   border-radius: ${({ theme }) => theme.radii.medium}px;
@@ -20,6 +20,7 @@ const Select = styled.select`
 
   ${space};
   ${layout}
+  ${flexbox};
 `
 
 export default Select

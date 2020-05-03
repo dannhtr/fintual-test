@@ -1,7 +1,7 @@
 import React from "react"
 import Trend from "react-trend"
 import styled from "styled-components"
-import { space } from "styled-system"
+import { space, layout } from "styled-system"
 import theme from "./theme"
 
 import Label from "./label"
@@ -9,6 +9,7 @@ import Heading from "./heading"
 
 const Stock = styled.div`
   ${space};
+  ${layout};
 `
 
 const StockComp = ({ name, profit, data, ...rest }) => {
@@ -24,11 +25,10 @@ const StockComp = ({ name, profit, data, ...rest }) => {
         autoDrawDuration={500}
         autoDrawEasing='ease-out'
         data={data}
-        gradient={[theme.colors.primary, theme.colors.success]}
+        gradient={[theme.colors.primary, theme.colors.info]}
         radius={20}
-        strokeWidth={6}
+        strokeWidth={8}
         strokeLinecap={"round"}
-        width={180}
         height={60}
       />
     </Stock>

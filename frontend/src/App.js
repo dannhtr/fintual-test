@@ -29,24 +29,57 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container>
-        <Sidebar />
+      <Container flexDirection={{ _: "column", md: "row" }} display={{ _: "initial", md: "flex" }}>
+        <Sidebar
+          height={{ _: "60px", md: "initial" }}
+          alignItems={{ _: "center", md: "start" }}
+          justifyContent={{ _: "initial", md: "center" }}
+          paddingTop={{ _: "20px", md: "60px" }}
+        >
+          <img src='./fintual-logo-white.png' alt='fintual' width={114} />
+        </Sidebar>
         <Main>
           <Content>
-            <Section display='flex' justifyContent='space-between' alignItems='flex-end' marginBottom={40}>
+            <Section
+              display='flex'
+              flexDirection={{ _: "column", md: "row" }}
+              justifyContent='space-between'
+              alignItems={{ _: "flex-start", md: "flex-end" }}
+              marginBottom={40}
+            >
               <PortfolioTitle title='Portafolio' name='Risky Norris A' />
               <Filter getProfit={getProfit} />
             </Section>
 
-            <Card borderRadius='large' p='100px'>
-              <Section display='flex' marginBottom={50}>
-                <DataItem name='Retorno Anualizado' value={annualized.toFixed(1)} marginRight={50} type='percent' />
+            <Card borderRadius='large' p={{ _: "25px", md: "50px", lg: "100px" }}>
+              <Section display='flex' marginBottom={50} flexDirection={{ _: "column", md: "row" }}>
+                <DataItem
+                  name='Retorno Anualizado'
+                  value={annualized.toFixed(1)}
+                  marginRight={50}
+                  marginBottom={25}
+                  type='percent'
+                />
                 <DataItem name='Beneficio' value={profit} type='cash' />
               </Section>
-              <Section display='flex' marginBottom='large' justifyContent='space-between'>
+              <Section
+                display='flex'
+                flexDirection={{ _: "column", md: "row" }}
+                marginBottom='large'
+                justifyContent='space-between'
+              >
                 {stocks
                   ? stocks.map((item, index) => {
-                      return <Stock key={index} name={item.name} profit={item.profit} data={item.values} />
+                      return (
+                        <Stock
+                          key={index}
+                          name={item.name}
+                          profit={item.profit}
+                          data={item.values}
+                          marginBottom={25}
+                          width={{ _: "100%", md: "30%" }}
+                        />
+                      )
                     })
                   : null}
               </Section>
