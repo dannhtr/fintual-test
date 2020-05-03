@@ -59,12 +59,14 @@ class Portfolio {
 
   calculateProfit(stocks) {
     const stocksProfit = []
+    console.log(stocks)
 
     for (let stockName in stocks) {
       let totalProfit = stocks[stockName][`${stocks[stockName].length - 1}`] - stocks[stockName][0]
       let stockProfit = {
         name: stockName,
-        profit: totalProfit
+        profit: totalProfit,
+        values: stocks[stockName]
       }
 
       stocksProfit.push(stockProfit)
